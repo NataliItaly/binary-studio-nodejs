@@ -5,6 +5,7 @@ class FighterService {
   constructor() {
     this.fighterRepository = new fighterRepository();
   }
+
   getAllFighters() {
     return this.fighterRepository.getAll();
   }
