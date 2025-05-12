@@ -3,7 +3,7 @@ import { userRepository } from "../repositories/userRepository.js";
 class UserService {
   // TODO: Implement methods to work with user
   constructor() {
-    this.userRepository = new userRepository();
+    this.userRepository = userRepository;
   }
 
   getAllUsers() {

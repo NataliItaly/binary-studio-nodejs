@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { userService, userService } from "../services/userService.js";
+import { userService } from "../services/userService.js";
 import {
   createUserValid,
   updateUserValid,
@@ -19,12 +19,12 @@ router.get("/:id", (req, res) => {
   res.json(user);
 });
 
-router.post("/", validateCreateUser, (req, res) => {
+router.post("/", createUserValid, (req, res) => {
   const newUser = userService.createUser(req.body);
   res.status(201).json(newUser);
 });
 
-router.patch("/:id", validateUpdateUser, (req, res) => {
+router.patch("/:id", updateUserValid, (req, res) => {
   const updated = userService.updateUser(req.params.id, req.body);
   if (!updated) return res.status(404).json({ error: "User not found" });
   res.json(updated);
